@@ -32,8 +32,8 @@ interface CinematicConfig {
 // sequence-1 → 164 frames   sequence-2 → 225 frames
 
 const CONFIG: CinematicConfig = {
-    seq1Dir: 'folder1/sequence-1/',
-    seq2Dir: 'folder1/sequence-2/',
+    seq1Dir: 'sequence-1/',
+    seq2Dir: 'sequence-2/',
     seq1Total: 164,
     seq2Total: 225,
     // Files are 1-indexed with 3-digit zero-padding: ezgif-frame-001.jpg
@@ -206,7 +206,7 @@ async function preload(): Promise<void> {
     preloadBar.style.opacity = '0';
     setTimeout((): void => { preloadBar.style.display = 'none'; }, 400);
 
-    // ── Auto-skip if no frame images exist (missing folder1/ assets) ──────────
+    // ── Auto-skip if no frame images exist (missing public/ assets) ──────────
     if (successCount === 0) {
         introComplete = true;
         revealMainApp();
