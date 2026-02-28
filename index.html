@@ -92,14 +92,17 @@
         /* ═══════════════════════════════════════════════════════════════════════════
        CINEMATIC — CANVAS & OVERLAYS
     ═══════════════════════════════════════════════════════════════════════════ */
-        #cinematic-canvas {
-            position: fixed;
-            inset: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            z-index: 1;
+        /* Cinematic videos are injected by JS — style them here */
+        .cinematic-video,
+        body>video {
+            position: fixed !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            z-index: 1 !important;
             background: #0E0C0A;
+            pointer-events: none;
         }
 
         #cinematic-spacer {
@@ -2421,7 +2424,7 @@
         @media print {
 
             #cinematic-spacer,
-            #cinematic-canvas,
+            body>video,
             #blur-interlude,
             #skip-btn {
                 display: none !important;
@@ -3236,8 +3239,7 @@
     <!-- ── Skip intro button ────────────────────────────────────────────────── -->
     <button id="skip-btn" aria-label="Skip intro">Skip intro ↓</button>
 
-    <!-- ── Cinematic canvas ─────────────────────────────────────────────────── -->
-    <canvas id="cinematic-canvas" aria-hidden="true"></canvas>
+    <!-- ── Cinematic videos are injected by main.ts ─────────────────────────── -->
 
     <!-- ── Blur interlude ───────────────────────────────────────────────────── -->
     <div id="blur-interlude" aria-hidden="true">
